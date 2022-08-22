@@ -1,9 +1,12 @@
 const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const answerButtonsElement = document.getElementById('answer-buttons');
 
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+var timerElement = document.querySelector('.timer-count');
+var timer;
+var timerCount;
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -15,10 +18,25 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
  startButton.classList.add('hide')
+ timerCount = 20;
  shuffledQuestions = questions.sort(() => Math.random() - .5)
  currentQuestionIndex = 0
  questionContainerElement.classList.remove('hide')
- setNextQuestion()
+ setNextQuestion();
+ startTimer();
+}
+
+function startTimer() {
+    timer = setInterval(function () {
+        timerCount--;
+        timerElement.textContent = timerCount;
+        if (timerCount === 0) {
+            nextButton.classList.add('hide')
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+            clearInterval(timer);
+        }
+    }, 1000)
 }
 
 function setNextQuestion() {
@@ -70,8 +88,11 @@ function setStatusClass(element, correct) {
         element.classList.add('correct')
     } else {
         element.classList.add('wrong')
+        timerCount = timerCount - 10;
+        timerElement.innerHTML = "0:" + timerCount;
+        }
     }
-}
+
 
 function clearStatusClass(element) {
     element.classList.remove('correct')
