@@ -6,7 +6,7 @@
 :root {
     --hue-neutral: 200;
     --hue-wrong: 0;
-    --hue-correct: 150;
+    --hue-correct: 145;
 }
 /* styling the quiz box*/
 body {
@@ -61,9 +61,10 @@ body.wrong {
 }
 
 .btn.correct{
-    --hue: var(--hue-correct)
     color: black;
+    --hue: var(--hue-correct)
 }
+
 .btn.wrong{
     --hue: var(--hue-wrong)
 }
