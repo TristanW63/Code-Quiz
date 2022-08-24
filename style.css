@@ -22,6 +22,44 @@ body {
 
 }
 
+#finalScoreDisplay {
+    
+    grid-column: 1 / span 2;
+    grid-row: 6 / span 1;
+    font-size: 15px;
+}
+
+
+
+#enterInitials {
+    
+    grid-column: 1 / span 1;
+    grid-row: 7 / span 1;
+    font-size: 15px;
+}
+
+
+#enterInitialsTextArea {
+    
+    grid-column: 2 / span 1;
+    grid-row: 7 / span 1;
+    font-size: 15px;
+    resize: none;
+    
+}
+
+#submitScore {
+    grid-column: 3 / span 1;
+    grid-row: 7 / span 1;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10%;
+    border: 0;
+    outline: 0; /* Remove border around button */
+    background-color: purple;
+    color: white;
+    font-family: 'Merienda';font-size: 15px;
+}
+
 body.correct {
     --hue: var(--hue-correct);
 }
@@ -96,4 +134,33 @@ body.wrong {
 
 .timer-text {
     color: white;
+}
+
+.results {
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    background-color: #13292d;
+    float: right;
+    color: white;
+}
+
+p {
+    float: right;
+    margin-bottom: 40px;
+}
+
+.btnHeader {
+    border-radius: 10px;
+    background-color: white;
+    text-decoration: none;
+    border: 0;
+    outline: 0; /* Remove border around button */
+    color: blueviolet;
+    font-family: 'Merienda';font-size: 20px;
+}
+
+.btnHeader:hover {
+
+    background-color: pink;
 }
