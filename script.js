@@ -217,7 +217,7 @@ function setStatusClass(element, correct, reduceTimer) {
     
     else {
         if(timerCount > 0 && reduceTimer) {
-        timerCount -= 10;
+        timerCount -= 5;
         }
         timerElement.innerHTML = timerCount;
         element.classList.add('wrong')
@@ -235,8 +235,8 @@ const questions = [
         question: 'What is a Script tag?',
         answers: [
             {text: 'JavaScript Link', correct: true },
-            {text: 'Paragraph', wrong: false }
-            {text: 'Bootstrap link', wrong: false }
+            {text: 'Paragraph', wrong: false },
+            {text: 'Bootstrap link', wrong: false },
             {text: 'CSS Link', wrong: false }
         ]
     },
@@ -274,6 +274,51 @@ const questions = [
             {text: 'console.log()', correct: false },
             {text: 'window.alert()', correct: false },
             {text: 'All of the above', correct: true }
+        ]
+    },
+    {
+        question: 'How can a datatype be declared to be a constant type?',
+        answers: [
+            {text: 'const', correct: true },
+            {text: 'var', correct: false },
+            {text: 'let', correct: false },
+            {text: 'constant', correct: false }
+        ]
+    },
+    {
+        question: 'What does the Javascript “debugger” statement do?',
+        answers: [
+            {text: 'It will debug all the errors in the program at runtime.', correct: false },
+            {text: 'It acts as a breakpoint in a program.', correct: true },
+            {text: 'It will debug error in the current statemnet if any.', correct: false },
+            {text: 'All of the above', correct: false }
+        ]
+    },
+    {
+        question: 'Which function is used to serialize an object into a JSON string in Javascript?',
+        answers: [
+            {text: 'stringify()', correct: true },
+            {text: 'parse()', correct: false },
+            {text: 'convert()', correct: false },
+            {text: 'None of the above', correct: false }
+        ]
+    },
+    {
+        question: 'Which of the following is not a Javascript framework?',
+        answers: [
+            {text: 'Node', correct: false },
+            {text: 'Vue', correct: false },
+            {text: 'React', correct: false },
+            {text: 'Cassandra', correct: true}
+        ]
+    },
+    {
+        question: 'How to stop an interval timer in Javascript?',
+        answers: [
+            {text: 'clearInterval', correct: true },
+            {text: 'clearTimer', correct: false },
+            {text: 'intervalOver', correct: false },
+            {text: 'None of the above', correct: false }
         ]
     }
 ]
