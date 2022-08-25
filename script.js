@@ -125,7 +125,7 @@ submitScoreEl.addEventListener("click", function() { // Submit high scores
 reStartbutton.classList.add('hide')
 function startGame() {
  startButton.classList.add('hide')
- timerCount = 60;
+ timerCount = 90;
  shuffledQuestions = questions.sort(() => Math.random() - .5)
  currentQuestionIndex = 0
  finalScoreDisplay.style.display = 'none';
