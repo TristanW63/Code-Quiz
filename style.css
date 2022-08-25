@@ -34,18 +34,18 @@ body {
 #enterInitials {
     
     grid-column: 1 / span 1;
-    grid-row: 7 / span 1;
+    grid-row: 4/ span 1;
     font-size: 15px;
 }
 
 
 #enterInitialsTextArea {
     
-    grid-column: 2 / span 1;
+    grid-column: 3 / span 1;
     grid-row: 7 / span 1;
     font-size: 15px;
     resize: none;
-    
+   float: right;
 }
 
 #submitScore {
@@ -109,6 +109,12 @@ body.wrong {
 }
 
 .start-btn, .next-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.restart-btn {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;

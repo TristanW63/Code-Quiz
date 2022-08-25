@@ -9,6 +9,7 @@ var submitScoreEl = document.getElementById('submitScore'); // Start Quiz button
 var finalScoreDisplayEl = document.createElement("finalScoreDisplay"); // Display Question
 var enterInitialsEl = document.createElement("enterInitials"); // Enter initials
 var enterInitialsTextAreaEl = document.createElement("enterInitialsTextArea"); // TextArea
+var reStartbutton = document.getElementById('restart-btn')
 var timerElement = document.querySelector('.timer-count');
 var timer;
 var timerCount;
@@ -23,7 +24,7 @@ nextButton.addEventListener('click', () => {
     setNextQuestion()
 })
 
-
+// to veiw past highscores
 viewHighScoresBtnEl.addEventListener("click", function() { // View high scores
 
     var quizUsers = "";
@@ -121,7 +122,7 @@ submitScoreEl.addEventListener("click", function() { // Submit high scores
     
 } );
  
-
+reStartbutton.classList.add('hide')
 function startGame() {
  startButton.classList.add('hide')
  timerCount = 60;
@@ -133,7 +134,7 @@ function startGame() {
  setNextQuestion();
  startTimer();
 }
-
+//function to start timer countdown
 function startTimer() {
     timer = setInterval(function () {
         timerCount--;
@@ -141,18 +142,17 @@ function startTimer() {
 
         if (timerCount === 0) {
             nextButton.classList.add('hide')
-    startButton.innerText = 'Restart'
-    startButton.classList.remove('hide')
+    reStartbutton.classList.remove('hide')
             clearInterval(timer);
         }
     }, 1000)
 }
-
+//setting up the next question
 function setNextQuestion() {
     resetState()
  showQuestion(shuffledQuestions[currentQuestionIndex])
 }
-
+//displays questions in random order one at a time
 function showQuestion(question) {
  questionElement.innerText = question.question
  question.answers.forEach(answer => {
@@ -167,7 +167,7 @@ function showQuestion(question) {
     answerButtonsElement.appendChild(button)
  })
 }
-
+//resets the bbody documents
 function resetState() {
     clearStatusClass(document.body)
     nextButton.classList.add('hide')
@@ -198,13 +198,17 @@ finalScoreDisplay.textContent = "Your final score is: " + highScore; // Assign t
 enterInitials.textContent = "Enter initials: "
 submitScoreEl.style.display = "";
 submitScoreEl.textContent = "Submit"; 
-    startButton.innerText = 'Restart'
-    startButton.classList.remove('hide')
+    answerButtonsElement.classList.add('hide')
+    questionElement.classList.add('hide')
+    reStartbutton.classList.remove('hide')
+    timerCount = timerCount = timerCount ;
 }
 }
-
-
-
+//reset button reloads page
+reStartbutton.addEventListener('click', function(){
+    document.location.reload(true);
+});
+//deducts time when wrong answer is chosen
 function setStatusClass(element, correct, reduceTimer) {
     clearStatusClass(element)
     if (correct) {
@@ -231,43 +235,45 @@ const questions = [
         question: 'What is a Script tag?',
         answers: [
             {text: 'JavaScript Link', correct: true },
+            {text: 'Paragraph', wrong: false }
+            {text: 'Bootstrap link', wrong: false }
             {text: 'CSS Link', wrong: false }
         ]
     },
     {
-        question: 'What isnt an Array',
+        question: 'Javascript is an ___ language?',
         answers: [
-            {text: 'Variables', correct: true },
-            {text: 'Boolean', wrong: false },
-            {text: 'Numbers', wrong: false },
-            {text: 'Text', wrong: false }
+            {text: 'Object-Oriented', wrong: true },
+            {text: 'Object-Based', wrong: false },
+            {text: 'Procedural', wrong: false },
+            {text: 'None of the above', correct: false }
         ]
      },
     {
-        question: 'What is a <p> tag',
+        question: 'Which of the following keywords is used to define a variable in Javascript?',
         answers: [
-            {text: 'paragraph', correct: true },
-            {text: 'Boolean', wrong: false },
-            {text: 'Numbers', wrong: false },
-            {text: 'Text', wrong: false }
+            {text: 'var', correct: false },
+            {text: 'let', wrong: false },
+            {text: 'Both A and B', wrong: true },
+            {text: 'None of the above', wrong: false }
         ]
     },
     {
-        question: 'worst coder',
+        question: 'Which of the following methods is used to access HTML elements using Javascript?',
         answers: [
-            {text: 'me', correct: true },
-            {text: 'Boolean', correct: false },
-            {text: 'Numbers', correct: false },
-            {text: 'Text', correct: false }
+            {text: 'getElementbyid()', correct: false },
+            {text: 'getElementsByClassName()', correct: false },
+            {text: 'Both A and B', correct: true },
+            {text: 'None of the above', correct: false }
         ]
     },
     {
-        question: 'do i understand this?',
+        question: 'Which of the following methods can be used to display data in some form using Javascript?',
         answers: [
-            {text: 'no', correct: true },
-            {text: 'Boolean', correct: false },
-            {text: 'Numbers', correct: false },
-            {text: 'Text', correct: false }
+            {text: 'document.write()', correct: false },
+            {text: 'console.log()', correct: false },
+            {text: 'window.alert()', correct: false },
+            {text: 'All of the above', correct: true }
         ]
     }
 ]
